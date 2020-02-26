@@ -68,6 +68,9 @@ rules:
   object-property-newline:
     - error
     - allowAllPropertiesOnSameLine: false
+  '@typescript-eslint/explicit-function-return-type':
+    - error
+    - allowExpressions: true
   react/no-unescaped-entities:
     - error
     - forbid:

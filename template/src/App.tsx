@@ -29,8 +29,8 @@ const App: React.FC = () => {
           {currentUser && <Menu onSignOutClick={handleSignOutClick} />}
           <div className="app-main">
             <Switch>
-              <PrivateRoute exact path="/" render={(): React.ReactNode => <Home/>} />
-              <PrivateRoute exact path="/other" render={(): React.ReactNode => <Other/>} />
+              <PrivateRoute exact path="/" render={() => <Home/>} />
+              <PrivateRoute exact path="/other" render={() => <Other/>} />
               <Route exact path="/sign-in">
                 <SignIn onSignIn={handleCurrentUser} />
               </Route>
