@@ -1,25 +1,47 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState, useCallback } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.scss'
+import AuthContext, { CurrentUser } from './contexts/auth'
+import PrivateRoute from './components/PrivateRoute'
+import Menu from './components/Menu'
+import SignIn from './pages/SignIn'
+import Home from './pages/Home'
+import Other from './pages/Other'
+import NotFound from './pages/NotFound'
 
 const App: React.FC = () => {
+  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null)
+
+  const handleCurrentUser = useCallback((user: CurrentUser | null) => {
+    setCurrentUser(user)
+  }, [currentUser])
+
+  const handleSignOutClick = useCallback(() => {
+    setCurrentUser(null)
+
+    return true
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value={currentUser}>
+      <Router>
+        <div className="app">
+          {currentUser && <Menu onSignOutClick={handleSignOutClick} />}
+          <div className="app-main">
+            <Switch>
+              <PrivateRoute exact path="/" render={(): React.ReactNode => <Home/>} />
+              <PrivateRoute exact path="/other" render={(): React.ReactNode => <Other/>} />
+              <Route exact path="/sign-in">
+                <SignIn onSignIn={handleCurrentUser} />
+              </Route>
+              <Route path="/">
+                <NotFound/>
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    </AuthContext.Provider>
   )
 }
 

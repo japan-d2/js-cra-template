@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+h1 {
+  font-weight: normal;
 }
 
-.App-logo {
+.app {
+  display: flex;
+}
+
+.app-menu {
+  width: 12rem;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul + ul {
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+.app-main {
+  flex: 1;
+  background-color: #282c34;
+  color: white;
+  min-height: 100vh;
+}
+
+.app-content {
+  padding: 1rem 2rem;
+}
+
+.app-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .app-logo {
+    animation: app-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2rem;
 }
 
-.App-link {
+.app-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes app-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+.app-form {
+  padding: 1rem;
+  border-radius: 3px;
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid #eee;
+    font-size: 1rem;
+    border-radius: 3px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fefefe;
+  }
+
+  input[type="submit"] {
+    padding: 0.4rem 1rem;
+    border: 1px solid #61dafb;
+    background-color: #61dafb;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 3px;
+    min-width: 9rem;
+    outline: none;
+
+    &:hover {
+      border: 1px solid lighten(#61dafb, 5%);
+      background-color: lighten(#61dafb, 5%);
+    }
+  }
+}
+
+.app-form-title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.app-form-item + .app-form-item {
+  margin-top: 1rem;
+}
+
+.app-form-item {
+  position: relative;
+
+  &.submit {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  &.error {
+    input[type="text"],
+    input[type="password"] {
+      border-color: #F00;
+    }
+  }
+}
+
+.app-form-item-error {
+  color: #F00;
+  margin-top: 0.1rem;
+  text-align: right;
+  font-size: 0.8rem;
+  position: absolute;
+  width: 100%;
+}
+
+.app-form-error {
+  color: #F00;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.app-form-title + .app-form-error {
+  margin-top: -1rem;
+}
+
+.app-form-label {
+  display: block;
+  margin-right: 1rem;
+  margin-bottom: 0.1rem;
+  min-width: 5rem;
+  font-size: 0.85rem;
+}
+
+.sign-in-form {
+  color: #444;
+  background-color: #FFF;
+  width: 24rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
 }
