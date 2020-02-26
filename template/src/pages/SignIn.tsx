@@ -48,9 +48,7 @@ const SignIn: React.FC<Props> = ({ onSignIn }) => {
               <input
                 name="name"
                 type="text"
-                ref={register({
-                  required: 'Name is required.',
-                })}
+                ref={register({ required: 'Name is required.' })}
               />
             </label>
             {errors.name && <div className="app-form-item-error">{errors.name.message}</div>}
