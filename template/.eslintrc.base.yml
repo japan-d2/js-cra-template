@@ -18,6 +18,7 @@ extends:
   - plugin:@typescript-eslint/recommended
   - plugin:react/recommended
   - standard
+  - react-app
 rules:
   comma-dangle:
     - error
@@ -59,7 +60,7 @@ rules:
     - error
     - ObjectExpression:
         multiline: true
-        minProperties: 1
+        minProperties: 2
         consistent: true
       ObjectPattern: never
       ImportDeclaration: never
@@ -67,6 +68,9 @@ rules:
   object-property-newline:
     - error
     - allowAllPropertiesOnSameLine: false
+  '@typescript-eslint/explicit-function-return-type':
+    - error
+    - allowExpressions: true
   react/no-unescaped-entities:
     - error
     - forbid:
