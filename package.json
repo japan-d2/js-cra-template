@@ -1,5 +1,5 @@
 {
-  "name": "@japan-d2/cra-template-simple",
+  "name": "@japan-d2/cra-template",
   "version": "0.0.1",
   "keywords": [
     "react",
@@ -9,9 +9,10 @@
   ],
   "description": "The base TypeScript template for Create React App.",
   "main": "template.json",
+  "homepage": "https://github.com/japan-d2/js-cra-template",
   "repository": {
     "type": "git",
-    "url": "https://github.com/japan-d2/js-cra-template-simple.git"
+    "url": "https://github.com/japan-d2/js-cra-template.git"
   },
   "license": "MIT",
   "engines": {
