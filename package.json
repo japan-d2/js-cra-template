@@ -12,7 +12,7 @@
   "homepage": "https://github.com/japan-d2/js-cra-template",
   "repository": {
     "type": "git",
-    "url": "https://github.com/japan-d2/js-cra-template.git"
+    "url": "git+https://github.com/japan-d2/js-cra-template.git"
   },
   "license": "MIT",
   "engines": {
@@ -21,5 +21,12 @@
   "files": [
     "template",
     "template.json"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/japan-d2/js-cra-template/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hidetaka Ooki <hidetaka.oki@japan-d2.com> (https://japan-d2.com)"
 }
