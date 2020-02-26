@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
   const handleCurrentUser = useCallback((user: CurrentUser | null) => {
     setCurrentUser(user)
-  }, [currentUser])
+  }, [])
 
   const handleSignOutClick = useCallback(() => {
     setCurrentUser(null)

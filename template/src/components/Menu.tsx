@@ -23,7 +23,7 @@ const Menu: React.FC<Props> = ({ onSignOutClick }) => {
     if (signedOut) {
       history.push('/sign-in')
     }
-  }, [history])
+  }, [onSignOutClick, history])
 
   return (
     <div className="app-menu">
@@ -58,7 +58,7 @@ const Menu: React.FC<Props> = ({ onSignOutClick }) => {
       </ul>
       <ul>
         <li>
-          <a className="app-link" onClick={handleSignOut}>Sign Out</a>
+          <button className="app-link" onClick={handleSignOut}>Sign Out</button>
         </li>
       </ul>
     </div>

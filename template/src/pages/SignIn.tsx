@@ -29,7 +29,7 @@ const SignIn: React.FC<Props> = ({ onSignIn }) => {
     } catch (error) {
       setFormError(error.message)
     }
-  }, [history])
+  }, [onSignIn, history])
 
   if (currentUser) {
     return <Redirect to="/" />

@@ -18,6 +18,7 @@ extends:
   - plugin:@typescript-eslint/recommended
   - plugin:react/recommended
   - standard
+  - react-app
 rules:
   comma-dangle:
     - error

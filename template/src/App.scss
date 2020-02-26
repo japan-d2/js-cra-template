@@ -33,6 +33,22 @@ h1 {
       font-weight: bold;
     }
   }
+
+  button {
+    box-sizing: border-box;
+    display: block;
+    padding: 1rem;
+    font-size: 1rem;
+    border-style: none;
+    width: 100%;
+    text-align: left;
+    outline: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
 }
 
 .app-main {

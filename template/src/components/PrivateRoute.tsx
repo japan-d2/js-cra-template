@@ -19,7 +19,7 @@ const PrivateRoute: React.FC<Props> = ({ render, redirect, ...rest }) => {
     return currentUser
       ? render(props)
       : <Redirect to={redirect ?? '/sign-in'} />
-  }, [currentUser, render])
+  }, [currentUser, render, redirect])
 
   return (
     <Route
