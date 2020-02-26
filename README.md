@@ -13,3 +13,11 @@ npx create-react-app my-app --template @japan-d2
 
 yarn create react-app my-app --template @japan-d2
 ```
+
+## VSCode
+
+Install [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
+
+```
+code --install-extension msjsdiag.debugger-for-chrome
+```
