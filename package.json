@@ -26,7 +26,10 @@
     "url": "https://github.com/japan-d2/js-cra-template/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./script/test.sh"
   },
-  "author": "Hidetaka Ooki <hidetaka.oki@japan-d2.com> (https://japan-d2.com)"
+  "author": "Hidetaka Ooki <hidetaka.oki@japan-d2.com> (https://japan-d2.com)",
+  "devDependencies": {
+    "create-react-app": "^3.4.0"
+  }
 }
