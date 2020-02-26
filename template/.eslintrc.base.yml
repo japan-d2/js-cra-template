@@ -19,12 +19,6 @@ extends:
   - plugin:react/recommended
   - standard
 rules:
-  node/no-unsupported-features/es-syntax:
-    - error
-    - ignores:
-        - modules
-  node/no-missing-import:
-    - off
   comma-dangle:
     - error
     - always-multiline
