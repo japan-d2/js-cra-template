@@ -42,7 +42,7 @@ const SignIn: React.FC<Props> = ({ onSignIn }) => {
         <form className="app-form sign-in-form" onSubmit={handleSubmit(handleSignIn)}>
           <div className="app-form-title">Sign In Form</div>
           {formError && <div className="app-form-error">{formError}</div>}
-          <div className={`app-form-item ${errors.name && 'error'}`}>
+          <div className={`app-form-item ${errors.name ? 'error' : ''}`.trim()}>
             <label>
               <span className="app-form-label">Name</span>
               <input
@@ -53,7 +53,7 @@ const SignIn: React.FC<Props> = ({ onSignIn }) => {
             </label>
             {errors.name && <div className="app-form-item-error">{errors.name.message}</div>}
           </div>
-          <div className={`app-form-item ${errors.password && 'error'}`}>
+          <div className={`app-form-item ${errors.password ? 'error' : ''}`.trim()}>
             <label>
               <span className="app-form-label">Password (Dummy)</span>
               <input
