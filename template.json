@@ -22,7 +22,8 @@
       "eslint-plugin-standard": "^4.0.1"
     },
     "scripts": {
-      "test": "react-scripts test --env=jsdom-fourteen"
+      "test": "react-scripts test --env=jsdom-fourteen",
+      "lint": "eslint src/ --ext .ts,.tsx"
     }
   }
 }
