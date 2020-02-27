@@ -6,13 +6,13 @@ const NotFound: React.FC = () => {
   const location = useLocation()
 
   return (
-    <div>
-      <Header currentPath="src/pages/NotFound.tsx" />
+    <>
+      <Header title="Not Found" />
       <main className="app-content">
         <h1>Not Found</h1>
         <p>{location.pathname}</p>
       </main>
-    </div>
+    </>
   )
 }
 
