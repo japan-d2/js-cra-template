@@ -92,10 +92,8 @@ rules:
     - off
 overrides:
   - files:
-      - "**/*.test.ts"
-      - "**/*.test.tsx"
-      - "tests/*.ts"
-      - "tests/*.tsx"
+      - "**/*.test.ts(x)"
+      - "tests/**/*.ts(x)"
     extends:
       - plugin:jest/recommended
     rules:
