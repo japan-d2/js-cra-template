@@ -1,10 +1,53 @@
 import React, { useCallback, MouseEvent } from 'react'
 import { match as Match, NavLink, useHistory } from 'react-router-dom'
 import { Location } from 'history'
+import styled from 'styled-components'
 
 export type Props = {
   onSignOutClick: () => Promise<boolean> | boolean;
 }
+
+const Wrapper = styled.div`
+  width: 12rem;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul + ul {
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.active {
+      font-weight: bold;
+    }
+  }
+
+  button {
+    box-sizing: border-box;
+    display: block;
+    padding: 1rem;
+    font-size: 1rem;
+    border-style: none;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+`
 
 const Menu: React.FC<Props> = ({ onSignOutClick }) => {
   const history = useHistory()
@@ -26,7 +69,7 @@ const Menu: React.FC<Props> = ({ onSignOutClick }) => {
   }, [onSignOutClick, history])
 
   return (
-    <div className="app-menu">
+    <Wrapper>
       <ul>
         <li>
           <NavLink
@@ -61,7 +104,7 @@ const Menu: React.FC<Props> = ({ onSignOutClick }) => {
           <button className="app-link" onClick={handleSignOut}>Sign Out</button>
         </li>
       </ul>
-    </div>
+    </Wrapper>
   )
 }
 

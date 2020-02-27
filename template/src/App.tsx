@@ -9,8 +9,12 @@ import Home from './pages/Home'
 import Other from './pages/Other'
 import NotFound from './pages/NotFound'
 
+const dummyUser: CurrentUser = {
+  name: 'Anonymous',
+}
+
 const App: React.FC = () => {
-  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null)
+  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(dummyUser)
 
   const handleCurrentUser = useCallback((user: CurrentUser | null) => {
     setCurrentUser(user)

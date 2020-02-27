@@ -1,26 +1,30 @@
 import React from 'react'
-import logo from '../logo.svg'
+import styled from 'styled-components'
 
 export type Props = {
-  currentPath: string;
+  title: string;
 }
 
-const Header: React.FC<Props> = ({ currentPath }) => {
+const Wrapper = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 60px;
+  border-bottom: 1px solid #fff;
+  text-align: left;
+  h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.6rem;
+  }
+`
+
+const Header: React.FC<Props> = ({ title }) => {
   return (
-    <header className="app-header">
-      <img src={logo} className="app-logo" alt="logo" />
-      <p>
-        Edit <code>{currentPath}</code> and save to reload.
-      </p>
-      <a
-        className="app-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+    <Wrapper className="app-header">
+      <h1>{title}</h1>
+    </Wrapper>
   )
 }
 
