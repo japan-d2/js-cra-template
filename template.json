@@ -38,7 +38,9 @@
     "scripts": {
       "test": "react-scripts test --env=jsdom-fourteen",
       "test:e2e": "rm -rf build tests/e2e/build && react-scripts build && mv build tests/e2e/build && jest --config=jest.e2e.config.js",
-      "lint": "eslint src/ --ext .ts,.tsx"
+      "lint:es": "eslint src/ --ext .ts,.tsx",
+      "lint:style": "stylelint src/",
+      "lint": "yarn lint:es && yarn lint:style"
     }
   }
 }
