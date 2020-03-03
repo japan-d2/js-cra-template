@@ -25,9 +25,11 @@ const Wrapper = styled.div`
     display: block;
     padding: 1rem;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
+
     &.active {
       font-weight: bold;
     }
@@ -42,6 +44,7 @@ const Wrapper = styled.div`
     width: 100%;
     text-align: left;
     outline: none;
+
     &:hover {
       text-decoration: underline;
       cursor: pointer;
