@@ -29,12 +29,18 @@
       "eslint-plugin-jest": "^23.8.0",
       "eslint-plugin-node": "^11.0.0",
       "eslint-plugin-promise": "^4.2.1",
-      "eslint-plugin-standard": "^4.0.1"
+      "eslint-plugin-standard": "^4.0.1",
+      "stylelint": "^13.2.0",
+      "stylelint-config-recommended": "^3.0.0",
+      "stylelint-config-recommended-scss": "^4.2.0",
+      "stylelint-scss": "^3.14.2"
     },
     "scripts": {
       "test": "react-scripts test --env=jsdom-fourteen",
       "test:e2e": "rm -rf build tests/e2e/build && react-scripts build && mv build tests/e2e/build && jest --config=jest.e2e.config.js",
-      "lint": "eslint src/ --ext .ts,.tsx"
+      "lint:es": "eslint src/ --ext .ts,.tsx",
+      "lint:style": "stylelint src/",
+      "lint": "yarn lint:es && yarn lint:style"
     }
   }
 }

@@ -13,6 +13,8 @@ const Wrapper = styled.header`
   line-height: 60px;
   border-bottom: 1px solid #fff;
   text-align: left;
+  background-image: url("image.jpg");
+
   h1 {
     margin: 0;
     font-weight: normal;
