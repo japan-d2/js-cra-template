@@ -59,7 +59,7 @@
 .app-form-item {
   position: relative;
 
-  .app-form-item + .app-form-item {
+  & + .app-form-item {
     margin-top: 1rem;
   }
 
