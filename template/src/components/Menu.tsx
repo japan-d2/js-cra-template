@@ -2,10 +2,9 @@ import React, { useCallback, MouseEvent } from 'react'
 import { match as Match, NavLink, useHistory } from 'react-router-dom'
 import { Location } from 'history'
 import styled from 'styled-components'
+import useStore from '../hooks/store'
 
-export type Props = {
-  onSignOutClick: () => Promise<boolean> | boolean;
-}
+export type Props = {}
 
 const Wrapper = styled.div`
   width: 12rem;
@@ -52,7 +51,8 @@ const Wrapper = styled.div`
   }
 `
 
-const Menu: React.FC<Props> = ({ onSignOutClick }) => {
+const Menu: React.FC<Props> = () => {
+  const { session } = useStore()
   const history = useHistory()
 
   const handleNotFoundActive = useCallback((_match: Match, location: Location) => {
@@ -63,13 +63,9 @@ const Menu: React.FC<Props> = ({ onSignOutClick }) => {
 
   const handleSignOut = useCallback(async (e: MouseEvent) => {
     e.preventDefault()
-
-    const signedOut = await onSignOutClick()
-
-    if (signedOut) {
-      history.push('/sign-in')
-    }
-  }, [onSignOutClick, history])
+    await session.signOut()
+    history.push('/sign-in')
+  }, [session, history])
 
   return (
     <Wrapper>

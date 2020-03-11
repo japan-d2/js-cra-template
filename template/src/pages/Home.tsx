@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { observer } from 'mobx-react-lite'
 import Header from '../components/Header'
-import useAuth from '../hooks/auth'
+import useStore from '../hooks/store'
 
-const Home: React.FC = () => {
-  const currentUser = useAuth()
+const Home: React.FC = observer(() => {
+  const { session: { currentUser } } = useStore()
   const chars = useMemo(() => Array.from(`Hello, ${currentUser?.name}.`), [currentUser])
   const [current, setCurrent] = useState<string[]>([])
   const indexRef = useRef(0)
@@ -42,6 +43,6 @@ const Home: React.FC = () => {
       </main>
     </>
   )
-}
+})
 
 export default Home

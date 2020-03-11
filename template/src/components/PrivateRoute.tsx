@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react'
 import { Route, Redirect, RouteProps, RouteComponentProps } from 'react-router-dom'
 import { LocationDescriptor } from 'history'
-import useAuth from '../hooks/auth'
+import { observer } from 'mobx-react-lite'
+import useStore from '../hooks/store'
 
 export type RouteParams = {
   [key: string]: string;
@@ -12,8 +13,8 @@ export type Props = RouteProps & {
   render: (props: RouteComponentProps<RouteParams>) => React.ReactNode;
 }
 
-const PrivateRoute: React.FC<Props> = ({ render, redirect, ...rest }) => {
-  const currentUser = useAuth()
+const PrivateRoute: React.FC<Props> = observer(({ render, redirect, ...rest }) => {
+  const { session: { currentUser } } = useStore()
 
   const routeRender = useCallback((props: RouteComponentProps<RouteParams>) => {
     return currentUser
@@ -27,6 +28,6 @@ const PrivateRoute: React.FC<Props> = ({ render, redirect, ...rest }) => {
       render={routeRender}
     />
   )
-}
+})
 
 export default PrivateRoute

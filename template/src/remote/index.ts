@@ -13,7 +13,7 @@ export const signIn = async (params: SignInParams): Promise<User> => {
   await defer(1000)
 
   return {
-    ...params,
+    name: params.name,
   }
 }
 

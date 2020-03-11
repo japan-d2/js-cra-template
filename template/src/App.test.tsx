@@ -2,9 +2,9 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import App from './App'
 
-test('renders "Home"', () => {
+test('renders "Sign In"', () => {
   const { container } = render(<App />)
-  const pageTitle = container.querySelector('header h1')
+  const pageTitle = container.querySelector('.app-form-title')
 
-  expect(pageTitle).toHaveTextContent('Home')
+  expect(pageTitle).toHaveTextContent('Sign In')
 })
