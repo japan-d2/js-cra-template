@@ -1,37 +1,34 @@
 import React, { useState, useCallback } from 'react'
 import { Redirect, useHistory } from 'react-router-dom'
 import { useForm, OnSubmit } from 'react-hook-form'
-import { CurrentUser } from '../contexts/auth'
-import * as remote from '../remote'
-import useAuth from '../hooks/auth'
+import { observer } from 'mobx-react-lite'
+import useStore from '../hooks/store'
 import Center from '../components/Center'
 
-export type Props = {
-  onSignIn: (user: CurrentUser) => Promise<void> | void;
-}
+export type Props = {}
 
 export type FormValues = {
   name: string;
   password: string;
 }
 
-const SignIn: React.FC<Props> = ({ onSignIn }) => {
+const SignIn: React.FC<Props> = observer(() => {
+  const { session } = useStore()
   const [formError, setFormError] = useState<string | null>(null)
-  const currentUser = useAuth()
   const { register, handleSubmit, errors } = useForm<FormValues>()
   const history = useHistory()
 
   const handleSignIn = useCallback<OnSubmit<FormValues>>(async (data) => {
     try {
       setFormError(null)
-      await onSignIn(await remote.signIn(data))
+      await session.signIn(data)
       history.push('/')
     } catch (error) {
       setFormError(error.message)
     }
-  }, [onSignIn, history])
+  }, [session, history])
 
-  if (currentUser) {
+  if (session.currentUser) {
     return <Redirect to="/" />
   }
 
@@ -78,6 +75,6 @@ const SignIn: React.FC<Props> = ({ onSignIn }) => {
       </main>
     </>
   )
-}
+})
 
 export default SignIn
